@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODATOSBC</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
@@ -52,6 +53,12 @@
         text-decoration: none;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
         }
+		
+		@media (max-width: 600px) {
+        img {
+          display: none;
+        }
+ }
 
     </style>
     <!-- Custom styles for this template -->
@@ -64,7 +71,7 @@
     <!--Inicio NavBar-->
     <header class="navbar-white sticky-top bg-white p-0  shadow-sm">
         <div class="container-fluid d-flex align-items-center">
-            <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}" width="300" height="150" alt="Bootstrap">
+          <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}" width="300" height="150" alt="Bootstrap"  >
             <p class="h1 ms-auto" style="font-family: Inter; color:#BD3284;">Pizarra de avances</p>
             <button class="btn btn-light dropdown-toggle ms-auto" data-toggle="tooltip" title="Cerrar sesión" style="color: #059B97" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false"></button>
             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownMenuButton2">

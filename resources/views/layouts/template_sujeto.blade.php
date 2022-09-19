@@ -48,6 +48,11 @@
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
         }
 
+		@media (max-width: 600px) {
+        img {
+          display: none;
+        }
+		
     </style>
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">

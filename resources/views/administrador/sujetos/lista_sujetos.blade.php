@@ -1,6 +1,35 @@
 @extends('layouts.template_admin')
 
 @section('content')
+
+<style>
+@media screen and (max-width: 600px) {
+       table {
+           width:100%;
+       }
+       thead {
+           display: none;
+       }
+       tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       tr td:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       tbody td {
+           display: block;
+           text-align:center;
+       }
+       tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+}
+</style>
+
 <div class="row justify-content-end">
     <div class="text-left col ms-2">
         <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Sujetos Obligados</label>
@@ -65,7 +94,7 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
-                    <th>ID</th>
+                   
                     <th>Sujeto Obligado</th>
                     <th>Nombre del Oficial</th>
                     <th>Sector</th>
@@ -86,22 +115,22 @@
 
                     @forelse ($users as $user)
                     <tr>
-                        <td style="width:5%;" class="align-top">
+                        <td  class="align-top">
                             <p>{{$user->number_user}}</p>
                         </td>
-                        <td style="width:15%;" class="align-top">
+                        <td  class="align-top">
                             <p>{{$user->username}}</p>
                         </td>
-                        <td style="width:30%;" class="align-top">
+                        <td  class="align-top">
                             <p>{{$user->name}} </p>
                         </td>
-                        <td style="width:20%;" class="align-top">
+                        <td class="align-top">
                             <p>{{$user->sector}} </p>
                         </td>
-                        <td style="width:25%;" class="align-top">
+                        <td class="align-top">
                             <p>{{$user->email}} </p>
                         </td>
-                        <td style="width:5%;">
+                        <td >
 
                             <form action="{{ route('sujeto.seguimiento', $user) }}" method="POST">
                                 @csrf
@@ -111,14 +140,14 @@
                         <!-- <td style="width:5%;">
                           <a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $user->id) }}"><i class="fa fa-file-text"></i></a>
                         </td> -->
-                        <td style="width:5%;">
+                        <td >
                             <button type="button" class="btn" data-bs-toggle="modal" data-toggle="tooltip" title="Editar sujeto obligado" data-bs-target="#modal-update-user-{{ $user->id }}" style="background: #BD3284; color:white;"><i class="fas fa-edit"></i></button>
                         </td>
-                        <td style="width:5%;">
+                        <td >
                             <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Editar contraseña" data-bs-toggle="modal" data-bs-target="#modal-update-password-{{ $user->id }}"><i class="fas fa-unlock"></i></button>
                         </td>
 
-                        <td style="width:5%;">
+                        <td >
                             @php
                             $btnNameRow = $buttonName.$row;
                             $row += 1;
